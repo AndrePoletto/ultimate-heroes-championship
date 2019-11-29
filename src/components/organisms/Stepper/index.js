@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import {
   Stepper,
@@ -45,7 +46,7 @@ function getStepContent(step) {
   }
 }
 
-export default function VerticalLinearStepper() {
+function VerticalLinearStepper(props) {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
@@ -66,10 +67,14 @@ export default function VerticalLinearStepper() {
     setActiveStep(0);
   };
 
+  const handleCompare = () => {
+    props.history.push("/compare");
+  };
+
   return (
     <div className={classes.root}>
       <Stepper activeStep={activeStep} orientation="vertical">
-        {steps.map((label) => {
+        {steps.map(label => {
           const stepProps = {};
           const labelProps = {};
           //if (isStepFailed(index)) {
@@ -106,7 +111,11 @@ export default function VerticalLinearStepper() {
                         <Button
                           variant="contained"
                           color="primary"
-                          onClick={handleNext}
+                          onClick={
+                            activeStep === steps.length - 1
+                              ? handleCompare
+                              : handleNext
+                          }
                           className={classes.button}
                         >
                           {activeStep === steps.length - 1 ? "Yeah" : "Next"}
@@ -123,3 +132,5 @@ export default function VerticalLinearStepper() {
     </div>
   );
 }
+
+export default withRouter(VerticalLinearStepper);
