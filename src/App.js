@@ -1,9 +1,11 @@
 import React from "react";
 import Home from "./pages/home";
+import Compare from "./pages/compare";
 import { Provider } from "react-redux";
 import { store } from "./store/index";
 import { BrowserRouter as Router } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
+import { Route, Switch } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -17,7 +19,14 @@ function App() {
     <Provider store={store}>
       <Router>
         <div className={classes.root}>
-          <Home />
+          <Switch>
+            <Route exact path={"/"}>
+              <Home />
+            </Route>
+            <Route exact path={"/compare"}>
+              <Compare />
+            </Route>
+          </Switch>
         </div>
       </Router>
     </Provider>

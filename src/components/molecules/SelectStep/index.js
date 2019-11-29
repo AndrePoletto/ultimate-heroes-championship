@@ -10,7 +10,7 @@ export default function SelectStep(props) {
   const secondHeroName = useSelector(state => state.secondHero.heroName);
   const explanation =
     props.order === 1
-      ? "Select the first one of two heroes by typing his name"
+      ? "Select the first one of two heroes by typing his name. You can try 'Superman' or 'Goku', for example"
       : "Now chose the second one, following the same principle";
   const id = (props.order === 1 ? "first" : "second") + "-hero-input";
 

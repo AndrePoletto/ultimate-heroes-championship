@@ -17,7 +17,7 @@ const initialState = {
   },
   heroGeneralInfo: {
     fullName: "unknown",
-    placeOfBirth: "unknown",
+    gender: "unknown",
     alignment: "unknown",
     height: "unknown",
     weight: "unknown"
