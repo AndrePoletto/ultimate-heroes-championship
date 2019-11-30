@@ -1,5 +1,6 @@
 import React from "react";
 import Home from "./pages/home";
+import Error from "./pages/error";
 import Compare from "./pages/compare";
 import { Provider } from "react-redux";
 import { store } from "./store/index";
@@ -25,6 +26,9 @@ function App() {
             </Route>
             <Route exact path={"/compare"}>
               <Compare />
+            </Route>
+            <Route exact path={"/error"}>
+              <Error />
             </Route>
           </Switch>
         </div>
