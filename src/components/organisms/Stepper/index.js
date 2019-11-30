@@ -51,10 +51,6 @@ function VerticalLinearStepper(props) {
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
 
-  //const isStepFailed = step => {
-  //  return step === 1;
-  //};
-
   const handleNext = () => {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
   };
@@ -74,12 +70,9 @@ function VerticalLinearStepper(props) {
   return (
     <div className={classes.root}>
       <Stepper activeStep={activeStep} orientation="vertical">
-        {steps.map(label => {
+        {steps.map((label) => {
           const stepProps = {};
           const labelProps = {};
-          //if (isStepFailed(index)) {
-          //  labelProps.error = true;
-          //}
           return (
             <Step key={label} {...stepProps}>
               <StepLabel {...labelProps}>{label}</StepLabel>
